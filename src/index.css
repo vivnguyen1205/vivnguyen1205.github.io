@@ -29,10 +29,10 @@
 
 :root[data-theme='dark'] {
   /* 1. deeper, greyer base so the green reads as a tint, not a block */
-  --bg: #1e2a1b;
+  --bg: #1b3022;
   --fg: #f4f1ea;
   --muted: #cfd8b4;
-  --line: color-mix(in srgb, var(--sage) 20%, #1e2a1b);
+  --line: color-mix(in srgb, var(--sage) 20%, #1b3022);
   /* 2. cards sit lighter than the page, so they look raised */
   --card: #2c4225;
   --card-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07), 0 10px 28px -14px rgb(0 0 0 / 0.6);
@@ -138,6 +138,19 @@ ul, ol { list-style: none; }
   line-height: 1.1;
   margin: 0.5rem 0 1.25rem;
 }
+.hero-top { display: flex; align-items: center; gap: 2.5rem; margin-top: 0.5rem; }
+.hero-intro { flex: 1; min-width: 0; }
+.hero-intro h1 { margin: 0 0 1.25rem; }
+.avatar {
+  /* width/height are set in App.tsx to match .hero-intro; this is the fallback */
+  width: 12rem;
+  height: 12rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  /* soft pink ring, matching the underline under the name */
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--highlight);
+}
 .tagline { font-size: 1.125rem; color: var(--muted); max-width: 34rem; }
 .hero-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; font-size: 0.925rem; }
 .hero-links a {
@@ -178,7 +191,20 @@ h3 { color: var(--heading); font-size: 1rem; font-weight: 600; }
 /* Experience */
 .timeline { display: flex; flex-direction: column; gap: 2.5rem; }
 .entry { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1.5rem; }
-.entry-meta { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding-top: 0.15rem; }
+.entry-meta { display: flex; flex-direction: column; font-family: var(--mono); font-size: 0.8rem; font-weight: 600; color: var(--muted); padding-top: 0.15rem; }
+.logo {
+  display: block;
+  width: 7rem;
+  height: 7rem;
+  /* auto margins centre it horizontally, and vertically in the space below the date */
+  margin: auto;
+  padding: 0.75rem;
+  object-fit: contain;
+  /* white rounded square with a pink outline so each logo stands out */
+  background: #fff;
+  border: 2px solid var(--pink);
+  border-radius: 22px;
+}
 .note { font-size: 0.85rem; color: var(--muted); margin-top: 0.15rem; }
 
 .points { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.4rem; }
@@ -239,6 +265,10 @@ h3 { color: var(--heading); font-size: 1rem; font-weight: 600; }
   .nav-links a { display: none; }
   .hero { padding: 3.5rem 0 3rem; }
   .entry, .skill-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  /* phones: photo goes above the name at a fixed size */
+  .hero-top { flex-direction: column-reverse; align-items: flex-start; gap: 1.5rem; }
+  .hero-top .avatar { width: 7.5rem !important; height: 7.5rem !important; }
+  .logo { width: 5rem; height: 5rem; padding: 0.55rem; border-radius: 16px; margin: 0.75rem 0 0.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

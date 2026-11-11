@@ -1,5 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { about, experience, profile, projects, skills } from './data'
+import avatar from './assets/avatar.jpg'
+
+// Keeps the profile photo the same height as the name + bio next to it.
+function useMatchedHeight<T extends HTMLElement>() {
+  const ref = useRef<T>(null)
+  const [height, setHeight] = useState<number>()
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const ro = new ResizeObserver(([entry]) => setHeight(entry.contentRect.height))
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+  return [ref, height] as const
+}
 
 const sections = ['about', 'experience', 'projects', 'skills', 'contact'] as const
 
@@ -51,6 +66,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
 
 export default function App() {
   const active = useActiveSection()
+  const [introRef, introHeight] = useMatchedHeight<HTMLDivElement>()
   const [theme, toggleTheme] = useTheme()
 
   return (
@@ -76,8 +92,18 @@ export default function App() {
           <p className="eyebrow">
             hi, i'm <span className="wave" aria-hidden="true" />
           </p>
-          <h1>{profile.name}</h1>
-          <p className="tagline">{profile.tagline}</p>
+          <div className="hero-top">
+            <div className="hero-intro" ref={introRef}>
+              <h1>{profile.name}</h1>
+              <p className="tagline">{profile.tagline}</p>
+            </div>
+            <img
+              className="avatar"
+              src={avatar}
+              alt={`Photo of ${profile.name}`}
+              style={introHeight ? { width: introHeight, height: introHeight } : undefined}
+            />
+          </div>
           <div className="hero-links">
             {profile.links.map((l) => (
               <a key={l.label} href={l.href} target={l.href.startsWith('http') || l.href.endsWith('.pdf') ? '_blank' : undefined} rel="noreferrer">
@@ -99,7 +125,10 @@ export default function App() {
           <ol className="timeline">
             {experience.map((job) => (
               <li key={job.company + job.period} className="entry">
-                <div className="entry-meta">{job.period}</div>
+                <div className="entry-meta">
+                  {job.period}
+                  {job.logo && <img className="logo" src={job.logo} alt={`${job.company} logo`} width={72} height={72} />}
+                </div>
                 <div>
                   <h3>
                     {job.role} <span className="muted">· {job.company}</span>

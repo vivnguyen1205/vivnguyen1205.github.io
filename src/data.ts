@@ -1,5 +1,10 @@
 // All site content lives here. Edit this file to update the portfolio.
 
+import ibmLogo from './assets/logos/ibm.png'
+import geneSolutionsLogo from './assets/logos/gene-solutions.png'
+import linamarLogo from './assets/logos/linamar.png'
+import mcmasterLogo from './assets/logos/mcmaster.png'
+
 export const profile = {
   name: 'Vivian Nguyen',
   role: 'Software Developer',
@@ -25,6 +30,7 @@ export type Experience = {
   company: string
   period: string
   note?: string
+  logo?: string
   points: string[]
 }
 
@@ -32,6 +38,7 @@ export const experience: Experience[] = [
   {
     role: 'Software Developer Intern',
     company: 'IBM',
+    logo: ibmLogo,
     period: 'May 2025 — Present',
     note: 'Full-time May 2025 – Aug 2026 · Part-time Sep 2026 – Present',
     points: [
@@ -43,6 +50,7 @@ export const experience: Experience[] = [
   {
     role: 'Third Year Representative',
     company: 'McMaster Software Engineering Society',
+    logo: mcmasterLogo,
     period: 'Sep 2024 — Apr 2025',
     points: [
       'Organized 12 networking and technical events for 150+ students, coordinating with a planning committee and industry sponsors.',
@@ -53,6 +61,7 @@ export const experience: Experience[] = [
   {
     role: 'Software Developer Intern',
     company: 'Gene Solutions',
+    logo: geneSolutionsLogo,
     period: 'May 2024 — Aug 2024',
     points: [
       'Built a responsive full-stack web application with an Angular front end using TypeScript, HTML, and CSS.',
@@ -62,6 +71,7 @@ export const experience: Experience[] = [
   {
     role: 'Engineering Intern',
     company: 'Linamar, Camtac',
+    logo: linamarLogo,
     period: 'May 2023 — Aug 2023',
     points: [
       'Analyzed production data — yield rates, cycle times, defect rates — to find improvement opportunities.',

@@ -105,11 +105,13 @@ export default function App() {
                     {job.role} <span className="muted">· {job.company}</span>
                   </h3>
                   {job.note && <p className="note">{job.note}</p>}
-                  <ul className="points">
-                    {job.points.map((pt, i) => (
-                      <li key={i}>{pt}</li>
-                    ))}
-                  </ul>
+                  {job.points.length > 0 && (
+                    <ul className="points">
+                      {job.points.map((pt, i) => (
+                        <li key={i}>{pt}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </li>
             ))}

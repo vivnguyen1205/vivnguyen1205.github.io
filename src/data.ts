@@ -9,7 +9,7 @@ export const profile = {
   email: 'vivnguyen1205@gmail.com',
   links: [
     { label: 'GitHub', href: 'https://github.com/vivnguyen1205' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/vivnguyen1205' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vivian-nguyen1205/' },
     { label: 'Email', href: 'mailto:vivnguyen1205@gmail.com' },
     { label: 'Resume', href: '/Vivian_Nguyen_Resume.pdf' },
   ],
@@ -41,6 +41,16 @@ export const experience: Experience[] = [
     ],
   },
   {
+    role: 'Third Year Representative',
+    company: 'McMaster Software Engineering Society',
+    period: 'Sep 2024 — Apr 2025',
+    points: [
+      'Organized 12 networking and technical events for 150+ students, coordinating with a planning committee and industry sponsors.',
+      'Managed event budgets, venues, scheduling, and promotion from planning through execution.',
+      'Collected attendee feedback after events and used it to improve future events.',
+    ],
+  },
+  {
     role: 'Software Developer Intern',
     company: 'Gene Solutions',
     period: 'May 2024 — Aug 2024',
@@ -69,6 +79,16 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    name: 'CADENCE',
+    summary: 'Final-year engineering capstone · Doppler ultrasound signal processing (in progress)',
+    stack: ['Python', 'NumPy', 'SciPy', 'C/C++', 'Teensy 4.1'],
+    highlights: [
+      "Team of 5 building a replacement for a research lab's discontinued Multigon system, turning Doppler ultrasound audio into a real-time mean blood velocity signal for LabChart.",
+      'Signal-processing pipeline uses frequency-domain analysis (FFT) to extract blood-flow frequencies and estimate mean velocity. It is prototyped in Python, then ported to C/C++ on a Teensy 4.1 for real-time output.',
+      'Contributed to the requirements specification, hazard analysis, verification and validation plan, and development plan.',
+    ],
+  },
   {
     name: 'Ledger',
     summary: 'LLM agent for SEC filing analysis',

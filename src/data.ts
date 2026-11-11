@@ -11,6 +11,7 @@ export const profile = {
     { label: 'GitHub', href: 'https://github.com/vivnguyen1205' },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/vivnguyen1205' },
     { label: 'Email', href: 'mailto:vivnguyen1205@gmail.com' },
+    { label: 'Resume', href: '/Vivian_Nguyen_Resume.pdf' },
   ],
 }
 
@@ -96,6 +97,17 @@ export const projects: Project[] = [
       'Identifies gemstones from photos using a CNN model served from a Flask backend.',
       'Image recognition, attribute-based search, user accounts, and secure storage in Firebase.',
     ],
+  },
+  {
+    name: 'SwiftApps',
+    summary: 'AI job application autofill assistant',
+    stack: ['Python', 'Cohere API', 'Google Cloud Vision', 'Selenium'],
+    highlights: [
+      'Automatically fills in open-ended job application questions with personalized answers based on your resume.',
+      'Extracts resume text from PDFs with Google Cloud Vision AI, then uses the Cohere API to write tailored responses.',
+      'Uses Selenium to read the questions from a web form and fill in the generated answers.',
+    ],
+    link: 'https://github.com/vivnguyen1205/SwiftApps',
   },
 ]
 

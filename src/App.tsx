@@ -73,12 +73,14 @@ export default function App() {
 
       <main id="top" className="container">
         <div className="hero">
-          <p className="eyebrow">{profile.role}</p>
+          <p className="eyebrow">
+            hi, i'm <span className="wave" aria-hidden="true">👋</span>
+          </p>
           <h1>{profile.name}</h1>
           <p className="tagline">{profile.tagline}</p>
           <div className="hero-links">
             {profile.links.map((l) => (
-              <a key={l.label} href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
+              <a key={l.label} href={l.href} target={l.href.startsWith('http') || l.href.endsWith('.pdf') ? '_blank' : undefined} rel="noreferrer">
                 {l.label} ↗
               </a>
             ))}

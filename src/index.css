@@ -14,23 +14,28 @@
   --tag-fg: var(--forest);
   --highlight: var(--petal);
   --pink: #e58aac;
+  --tint-card: 38%;
+  --tint-tag: 80%;
   --font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --serif: 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --cream: #f7ecd0;
   --mono: ui-monospace, 'SF Mono', Menlo, monospace;
   color-scheme: light;
 }
 
 :root[data-theme='dark'] {
-  --bg: #0f1a0c;
-  --fg: #f2f1ea;
-  --muted: var(--sage);
-  --line: #263522;
-  --card: #152312;
+  --bg: #2c4225;
+  --fg: #fbf9f4;
+  --muted: #d6dfb8;
+  --line: color-mix(in srgb, var(--sage) 35%, #2c4225);
+  --card: color-mix(in srgb, var(--forest) 45%, #2c4225);
   --accent: var(--petal);
-  --tag-bg: color-mix(in srgb, var(--sage) 14%, transparent);
-  --tag-fg: var(--sage);
-  --highlight: color-mix(in srgb, var(--petal) 35%, transparent);
+  --tag-bg: color-mix(in srgb, var(--petal) 18%, transparent);
+  --tag-fg: var(--petal);
+  --highlight: color-mix(in srgb, var(--petal) 45%, transparent);
   --pink: var(--petal);
+  --tint-card: 10%;
+  --tint-tag: 22%;
   color-scheme: dark;
 }
 
@@ -87,7 +92,15 @@ ul, ol { list-style: none; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
 
 .hero { padding: 6rem 0 4rem; }
-.eyebrow { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+.eyebrow { font-weight: 500; font-size: 1.05rem; color: var(--muted); }
+.wave { display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s ease-in-out 0.4s 2; }
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0); }
+  10%, 30% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
 .hero h1 {
   font-family: var(--serif);
   font-weight: 400;
@@ -97,9 +110,14 @@ ul, ol { list-style: none; }
   margin: 0.5rem 0 1.25rem;
 }
 .tagline { font-size: 1.125rem; color: var(--muted); max-width: 34rem; }
-.hero-links { display: flex; gap: 1.5rem; margin-top: 2rem; font-size: 0.925rem; }
-.hero-links a { border-bottom: 2px solid var(--highlight); padding-bottom: 2px; transition: border-color 0.15s; }
-.hero-links a:hover { border-color: var(--pink); }
+.hero-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; font-size: 0.925rem; }
+.hero-links a {
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.hero-links a:hover { border-color: var(--pink); background: color-mix(in srgb, var(--petal) 25%, transparent); box-shadow: 0 6px 18px -8px var(--pink); transform: translateY(-1px); }
 .hero h1 { text-decoration: underline var(--highlight) 0.18em; text-underline-offset: 0.12em; text-decoration-skip-ink: none; }
 
 .section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
@@ -141,22 +159,25 @@ h3 { font-size: 1rem; font-weight: 600; }
 /* Projects */
 .projects { display: flex; flex-direction: column; gap: 1.25rem; }
 .card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 1.5rem;
+  --tint: var(--petal);
+  background: color-mix(in srgb, var(--tint) var(--tint-card), var(--card));
+  border: 1px solid transparent;
+  border-radius: 22px;
+  padding: 1.6rem 1.75rem;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.card:hover { border-color: var(--pink); transform: translateY(-2px); box-shadow: 0 6px 20px -8px var(--highlight); }
+.card:nth-child(3n + 2) { --tint: var(--sage); }
+.card:nth-child(3n + 3) { --tint: var(--cream); }
+.card:hover { transform: translateY(-3px); box-shadow: 0 0 0 2px color-mix(in srgb, var(--petal) 70%, transparent), 0 12px 32px -10px var(--pink); }
 .card-head h3 { font-size: 1.1rem; }
 .card-head p { font-size: 0.925rem; }
 .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
 .tags li {
   font-family: var(--mono);
   font-size: 0.72rem;
-  background: var(--tag-bg);
+  background: color-mix(in srgb, var(--tint) var(--tint-tag), var(--card));
   border-radius: 999px;
-  padding: 0.15rem 0.6rem;
+  padding: 0.2rem 0.75rem;
   color: var(--tag-fg);
 }
 

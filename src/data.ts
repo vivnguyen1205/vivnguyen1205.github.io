@@ -11,7 +11,7 @@ export const profile = {
     { label: 'GitHub', href: 'https://github.com/vivnguyen1205' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vivian-nguyen1205/' },
     { label: 'Email', href: 'mailto:vivnguyen1205@gmail.com' },
-    { label: 'Resume', href: '/Vivian_Nguyen_Resume.pdf' },
+    { label: 'Resume', href: `${import.meta.env.BASE_URL}Vivian_Nguyen_Resume.pdf` },
   ],
 }
 

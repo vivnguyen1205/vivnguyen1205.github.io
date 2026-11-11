@@ -113,14 +113,14 @@ ul, ol { list-style: none; }
 .hero { padding: 6rem 0 4rem; }
 .eyebrow { font-weight: 500; font-size: 1.05rem; color: var(--muted); }
 .wave {
-  /* public/wave.png is used as a stencil, so it takes the colour of the text around it */
+  /* assets/wave.png is used as a stencil, so it takes the colour of the text around it */
   width: 1.15em;
   height: 1.15em;
   vertical-align: -0.2em;
   margin-left: 0.15em;
   background: currentColor;
-  -webkit-mask: url('/wave.png') center / contain no-repeat;
-  mask: url('/wave.png') center / contain no-repeat;
+  -webkit-mask: url('./assets/wave.png') center / contain no-repeat;
+  mask: url('./assets/wave.png') center / contain no-repeat;
   display: inline-block; transform-origin: 30% 80%; animation: wave 2.4s ease-in-out 0.4s 2; }
 @keyframes wave {
   0%, 60%, 100% { transform: rotate(0); }

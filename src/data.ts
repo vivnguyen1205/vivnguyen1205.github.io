@@ -16,8 +16,8 @@ export const profile = {
 }
 
 export const about = [
-  "I'm a Software Engineering (Co-op) student at McMaster University, graduating December 2027. I'm currently a Software Developer Intern at IBM, working on IBM Guardium Data Security across a React front end and Go backend services.",
-  "Outside of work, I love building side projects, which you can read more about below or on my GitHub. When I'm not coding, you'll usually find me travelling, taking photos, or playing music on the flute, saxophone, or piano.",
+  "I'm a Software Engineering (Co-op) student at McMaster University, graduating December 2027. I'm currently a Software Developer Intern at IBM, working on IBM Guardium Data Security across a React front end and Go backend services. I'm passionate about building impactful projects that solve real-life problems.",
+  "Outside of work, I love building side projects, which you can read more about below or on my GitHub. When I'm not coding, you'll usually find me solo travelling, taking photos, or playing music on the flute, saxophone, or piano.",
 ]
 
 export type Experience = {

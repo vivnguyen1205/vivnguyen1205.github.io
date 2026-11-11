@@ -199,6 +199,10 @@ h3 { color: var(--heading); font-size: 1rem; font-weight: 600; }
 .card:nth-child(3n + 2) { --tint: var(--sage); }
 .card:nth-child(3n + 3) { --tint: var(--cream); }
 .card:hover { transform: translateY(-3px); box-shadow: var(--card-shadow), 0 0 0 2px color-mix(in srgb, var(--petal) 70%, transparent), 0 12px 32px -10px var(--pink); }
+/* Dark mode: each card's hover glow uses that card's pastel colour */
+:root[data-theme='dark'] .card:hover {
+  box-shadow: var(--card-shadow), 0 0 0 2px color-mix(in srgb, var(--tint) 70%, transparent), 0 12px 32px -10px var(--tint);
+}
 .card-head h3 { font-size: 1.1rem; }
 .card-head p { font-size: 0.925rem; }
 .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }

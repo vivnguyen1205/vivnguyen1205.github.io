@@ -74,7 +74,7 @@ export default function App() {
       <main id="top" className="container">
         <div className="hero">
           <p className="eyebrow">
-            hi, i'm <span className="wave" aria-hidden="true">👋</span>
+            hi, i'm <span className="wave" aria-hidden="true" />
           </p>
           <h1>{profile.name}</h1>
           <p className="tagline">{profile.tagline}</p>
